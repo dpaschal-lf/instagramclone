@@ -1,4 +1,5 @@
 import React from 'react';
+import GalleryItem from './GalleryItem.js';
 
 class Gallery extends React.Component{
     constructor(props){
@@ -23,7 +24,9 @@ class Gallery extends React.Component{
     }
     render(){
         return(
-            <div>gallery</div>
+            <div className="galleryContainer">
+                { this.state.data.length ? this.state.data.map( data => <GalleryItem/>) : 'no data available'}
+            </div>
         )
     }
 }
