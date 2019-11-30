@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import {Switch, Route} from 'react-router-dom';
 import Gallery from './components/gallery/Gallery.js';
 import GalleryItemDetails from './components/gallery/GalleryItemDetails.js';

@@ -25,7 +25,7 @@ class Gallery extends React.Component{
     render(){
         return(
             <div className="galleryContainer">
-                { this.state.data.length ? this.state.data.map( data => <GalleryItem/>) : 'no data available'}
+                { this.state.data.length ? this.state.data.map( data => <GalleryItem key={data.externalID} data={data}/>) : 'no data available'}
             </div>
         )
     }
