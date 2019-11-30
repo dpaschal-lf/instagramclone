@@ -4,7 +4,7 @@ require_once('functions.php');
 set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
 
-$query = "SELECT `externalID`, `likes`, `commentCount` FROM `posts` WHERE `status`='active'";
+$query = "SELECT `userID`, `externalID`, `likes`, `commentCount`, `extension` FROM `posts` WHERE `status`='active'";
 
 $result = $db->query($query);
 
@@ -14,6 +14,7 @@ if(!$result){
 $data = [];
 
 while($row = $result->fetch_assoc()){
+    $row['imagePath'] = "images/{$row['userID']}/{$row['externalID']}.{$row['extension']}";
     $data[] = $row;
 }
 
