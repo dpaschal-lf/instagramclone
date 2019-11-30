@@ -5,15 +5,52 @@
   border-radius: 5%;
 }
 .galleryContainer{
-  column-count: 3;
-  column-gap: 0;
+  /* column-count: 1;
+  column-gap: 0; */
   width: 100%;
   height: 100vh;
 }
 .galleryItem{
   width: 100%;
   height: 50vh;
+  position: relative;
 }
 .galleryItem > .background{
   width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.galleryItem .icons{
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  color: white;
+  filter: drop-shadow(0px, 0px, 2px, black);
+  height: 2em;
+  width: 20%;
+}
+.galleryItem .iconContainer{
+  position: relative;
+  height: 100%;
+  display: inline-block;
+  width: 2em;
+  margin-right: 3%;
+}
+.galleryItem .iconContainer > *{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.galleryItem .iconContainer > .iconBody{
+  font-size: 2em;
+}
+.galleryItem .iconContainer > .iconData{
+  left: 50%;
+  top: 50%;
+  font-size: 1em;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+  color: blue;
 }
