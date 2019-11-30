@@ -25,12 +25,12 @@ class GalleryItem extends React.Component{
                 <div className="icons">
                     <div className="iconContainer">
                         <i className="fas fa-heart iconBody"></i>
-                        <div className="iconData">3</div>
+        <div className="iconData">{this.props.data.likes}</div>
                     </div>
-                    <div className="iconContainer">
+                    <Link to={`/comments/${this.props.data.externalID}`} className="iconContainer">
                         <i className="fas fa-comment iconBody"></i>
-                        <div className="iconData">3</div>
-                    </div>
+                        <div className="iconData">{this.props.data.commentCount}</div>
+                    </Link>
                 </div>
             </div>
         );
