@@ -18,18 +18,21 @@ class GalleryItem extends React.Component{
     render(){
         return(
             <div onClick={this.exposeData} className={`galleryItem ${this.state.exposed ? 'exposed' : ''}`}>
-                <img className="background" src={this.props.data.imagePath} />
+                <img className="background" alt={this.props.data.originalImage} src={this.props.data.imagePath} />
                 <div className="ownerData">
         <Link to={`users/${this.props.data.userExternalID}`}>{this.props.data.displayName}</Link>
                 </div>
                 <div className="icons">
                     <div className="iconContainer">
                         <i className="fas fa-heart iconBody"></i>
-        <div className="iconData">{this.props.data.likes}</div>
+                        <div className="iconData">{this.props.data.likes}</div>
                     </div>
                     <Link to={`/comments/${this.props.data.externalID}`} className="iconContainer">
                         <i className="fas fa-comment iconBody"></i>
                         <div className="iconData">{this.props.data.commentCount}</div>
+                    </Link>
+                    <Link to={`/gallery/${this.props.data.externalID}`} className="iconContainer">
+                        <i className="fas fa-eye iconBody"></i>
                     </Link>
                 </div>
             </div>

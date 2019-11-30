@@ -4,7 +4,7 @@ require_once('functions.php');
 set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
 
-$query = "SELECT p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`,
+$query = "SELECT p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`, p.`originalName`,
     u.externalID as userExternalID, u.displayName
     FROM `posts` AS p
         JOIN `users` AS u
