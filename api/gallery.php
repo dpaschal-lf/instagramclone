@@ -4,7 +4,12 @@ require_once('functions.php');
 set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
 
-$query = "SELECT `userID`, `externalID`, `likes`, `commentCount`, `extension` FROM `posts` WHERE `status`='active'";
+$query = "SELECT p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`,
+    u.externalID as userExternalID, u.displayName
+    FROM `posts` AS p
+        JOIN `users` AS u
+            ON u.`id` = p.`userID`
+    WHERE p.`status`='active'";
 
 $result = $db->query($query);
 

@@ -11,11 +11,13 @@ class App extends React.Component{
   }
   render(){
     return(
-      <Switch>
-        <Route exact path={['/','/gallery']}><Gallery /></Route>
-        <Route path="/gallery/add/"><GalleryItemAdd /></Route>
-        <Route path="/gallery/:id"><GalleryItemDetails /></Route>
-      </Switch>
+      <div className="app">
+        <Switch>
+          <Route exact path={['/','/gallery']}><Gallery /></Route>
+          <Route path="/gallery/add/"><GalleryItemAdd /></Route>
+          <Route path="/gallery/:id"><GalleryItemDetails /></Route>
+        </Switch>
+      </div>
     );
   }
 }
