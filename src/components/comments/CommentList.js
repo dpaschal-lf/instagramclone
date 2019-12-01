@@ -9,6 +9,9 @@ class CommentList extends React.Component{
             data: []
         }
     }
+    componentDidMount(){
+        this.getCommentData();
+    }
     getCommentData(){
         fetch('/api/comments.php?postID='+this.props.postID)
             .then( response => response.json() )
