@@ -56,9 +56,9 @@ if(!function_exists('getCommentsForPost')){
         $query = "SELECT c.`externalID`, c.`added`, c.`message`, c.`edited`,
             u.`avatar`, u.`externalID` AS userExternalID, u.`displayName`
             FROM `comments` AS c
-            JOIN `users` AS u
+            LEFT JOIN `users` AS u
                 ON u.`id` = c.`userID`
-            WHERE c.`id` = $postID
+            WHERE c.`postID` = $postID
         ";
         $result = $db->query($query);
         if(!$result){

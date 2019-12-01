@@ -134,6 +134,9 @@
 .commentItem{
   display: flex;
 }
+.commentItem:nth-child(even){
+  background-color: lightgrey;
+}
 .commentItem .userData{
   width: 34%;
 }

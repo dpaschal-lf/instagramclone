@@ -5,7 +5,7 @@ export default props => {
     return (
         <div className="commentItem">
             <div className="userData">
-                <div className="avatar" style={{backgroundImage: `url(${props.data.avatar})`}}></div>
+                <div className="avatar" style={{backgroundImage: `url(/${props.data.avatar})`}}></div>
                 <div className="userName">{props.data.displayName}</div>
             </div>
             <div className="messageData">
