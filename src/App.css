@@ -16,6 +16,7 @@
   width: 100%;
   height: 100vh;
 }
+/* gallery list items */
 .galleryItem{
   width: 100%;
   height: 50vh;
@@ -83,4 +84,47 @@
 }
 .galleryItem:hover .icons, .galleryItem:hover .ownerData, .galleryIcon.exposed .icons, .galleryIcon.exposed .ownerData{
   transform: translateY(0%);
+}
+/* gallery item details */
+
+.galleryDetails{
+  height: 100%;
+}
+.galleryDetails .imageContainer{
+  height: 50%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: darkgray;
+}
+.galleryDetails .icons{
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  color: white;
+  width: 50%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+.galleryDetails .iconBody{
+  height: 100%;
+  display: inline-block;
+  color: inherit;
+  font-size: 2em;
+  position: relative;
+}
+.galleryDetails .iconData{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: .5em;
+}
+.galleryDetails .postCaption{
+  color: black;
 }
