@@ -128,3 +128,28 @@
 .galleryDetails .postCaption{
   color: black;
 }
+
+/* comment items */
+
+.commentItem{
+  display: flex;
+}
+.commentItem .userData{
+  width: 34%;
+}
+.commentItem .messageData{
+  width: 66%;
+}
+.commentItem .messageMetaData{
+  display: flex;
+  justify-content: space-around;
+}
+.commentItem .messageMetaData > *{
+  font-size: .3em;
+}
+.commentItem .messageMetaData .messagePosted::before{
+  content: 'posted: ';
+}
+.commentItem .messageMetaData .messageEdited::before{
+  content: 'edited: ';
+}
