@@ -46,4 +46,30 @@ if(!function_exists('prepare_statement')){
     }
 }
 
+if(!function_exists('getCommentsForPost')){
+    function getCommentsForPost($postID){
+        global $db;
+        if(empty($postID)){
+            throw new Exception('post ID must be supplied');
+        }
+        $postID = intval($postID);
+        $query = "SELECT c.`added`, c.`message`, c,`edited`,
+            u.`avatar`, u.`externalID`, u.`displayName`
+            FROM `comments` AS c
+            JOIN `users` AS u
+                ON u.`id` = c.`userID`
+            WHERE c.`id` = $postID
+        ";
+        $result = $db->query($query);
+        if(!$result){
+            throw new Exception('comment query failed ' . $db->error);
+        }
+        $data = [];
+        while($row = $result->fetch_assoc()){
+            $data[] = $row;
+        }
+        return $data;
+    }
+}
+
 ?>
