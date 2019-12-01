@@ -12,7 +12,7 @@ export default props => {
                 <div className="messageContent">{props.data.message}</div>
                 <div className="messageMetaData">
                     <div className="messagePosted">{props.data.added}</div>
-                    <div className="MessageEdited">{props.data.edited}</div>
+                    <div className="messageEdited">{props.data.edited}</div>
                 </div>
             </div>
         </div>
