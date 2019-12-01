@@ -41,7 +41,7 @@ if(!$result){
 $data = [];
 
 while($row = $result->fetch_assoc()){
-    $row['imagePath'] = "images/{$row['userID']}/{$row['externalID']}.{$row['extension']}";
+    $row['imagePath'] = "images/{$row['userExternalID']}/{$row['externalID']}.{$row['extension']}";
     $data[] = $row;
 }
 
