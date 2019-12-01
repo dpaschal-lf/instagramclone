@@ -53,8 +53,8 @@ if(!function_exists('getCommentsForPost')){
             throw new Exception('post ID must be supplied');
         }
         $postID = intval($postID);
-        $query = "SELECT c.`id`, c.`added`, c.`message`, c.`edited`,
-            u.`avatar`, u.`externalID`, u.`displayName`
+        $query = "SELECT c.`externalID`, c.`added`, c.`message`, c.`edited`,
+            u.`avatar`, u.`externalID` AS userExternalID, u.`displayName`
             FROM `comments` AS c
             JOIN `users` AS u
                 ON u.`id` = c.`userID`
@@ -66,6 +66,7 @@ if(!function_exists('getCommentsForPost')){
         }
         $data = [];
         while($row = $result->fetch_assoc()){
+            $row['avatar'] = "images/{$row['userExternalID']}/{$row['avatar']}";
             $data[] = $row;
         }
         return $data;
