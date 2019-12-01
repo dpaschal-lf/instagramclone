@@ -53,7 +53,7 @@ if(!function_exists('getCommentsForPost')){
             throw new Exception('post ID must be supplied');
         }
         $postID = intval($postID);
-        $query = "SELECT c.`added`, c.`message`, c,`edited`,
+        $query = "SELECT c.`id`, c.`added`, c.`message`, c.`edited`,
             u.`avatar`, u.`externalID`, u.`displayName`
             FROM `comments` AS c
             JOIN `users` AS u

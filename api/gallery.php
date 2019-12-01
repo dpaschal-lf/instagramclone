@@ -5,7 +5,7 @@ set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
 
 if(!empty($_GET['id'])){
-    $query = "SELECT p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`, p.`originalName`, p.`caption`, p.`added`,
+    $query = "SELECT p.`id`, p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`, p.`originalName`, p.`caption`, p.`added`,
     u.`externalID` as userExternalID, u.`displayName`
     FROM `posts` AS p
         JOIN `users` AS u
