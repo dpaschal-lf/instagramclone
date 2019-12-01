@@ -21,7 +21,9 @@ class CommentList extends React.Component{
     }
     render(){
         return(
-            <div>comment list</div>
+            <div className="commentContainer">
+                { this.state.data.map( data => <CommentItem data={data} key={data.externalID} />)}
+            </div>
         );
     }
 }
