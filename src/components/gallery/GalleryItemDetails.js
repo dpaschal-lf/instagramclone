@@ -28,17 +28,18 @@ class GalleryItemDetails extends React.Component{
         if(this.state.data === null){
             return <div>Loading data...</div>
         }
+        debugger;
         return(
             <div className="galleryDetails">
-                <img className="background" alt={this.props.data.originalImage} src={this.props.data.imagePath} />
+                <img className="background" alt={this.state.data.imagePath} src={this.state.data.imagePath} />
                 <div className="icons">
                     <div className="iconContainer">
                         <i className="fas fa-heart iconBody"></i>
-                        <div className="iconData">{this.props.data.likes}</div>
+                        <div className="iconData">{this.state.data.likes}</div>
                     </div>
                     <div className="iconContainer">
                         <i className="fas fa-comment iconBody"></i>
-                        <div className="iconData">{this.props.data.commentCount}</div>
+                        <div className="iconData">{this.state.data.commentCount}</div>
                     </div>
                 </div>
             </div>

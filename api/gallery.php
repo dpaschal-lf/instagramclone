@@ -3,7 +3,7 @@
 require_once('functions.php');
 set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
-print("moo");
+
 if(!empty($_GET['id'])){
     $query = "SELECT p.`id`, p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`, p.`originalName`, p.`caption`, p.`added`,
     u.`externalID` as userExternalID, u.`displayName`
@@ -19,6 +19,7 @@ if(!empty($_GET['id'])){
         throw new Exception('invalid ID: '. $_GET['id'] );
     }
     $postData = $result->fetch_assoc();
+    $postData['imagePath'] = "images/{$postData['userExternalID']}/{$postData['externalID']}.{$postData['extension']}";
     $postData['comments'] = getCommentsForPost($postData['id']);
     print(json_encode($postData));
     exit();
