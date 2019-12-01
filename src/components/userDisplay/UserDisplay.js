@@ -13,7 +13,7 @@ class UserDisplay extends React.Component{
         }
     }
     getUserData(){
-        fetch(`${process.env.PUBLIC_URL}/api/`)
+        fetch(`${process.env.PUBLIC_URL}/api/user.php?id=${this.props.id}`)
             .then( response => response.json() )
             .then( response => {
                 this.setState({
