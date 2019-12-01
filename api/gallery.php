@@ -20,7 +20,6 @@ if(!empty($_GET['id'])){
     }
     $postData = $result->fetch_assoc();
     $postData['imagePath'] = "images/{$postData['userExternalID']}/{$postData['externalID']}.{$postData['extension']}";
-    $postData['comments'] = getCommentsForPost($postData['id']);
     print(json_encode($postData));
     exit();
 }
