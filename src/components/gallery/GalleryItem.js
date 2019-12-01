@@ -20,7 +20,7 @@ class GalleryItem extends React.Component{
             <div onClick={this.exposeData} className={`galleryItem ${this.state.exposed ? 'exposed' : ''}`}>
                 <img className="background" alt={this.props.data.originalImage} src={this.props.data.imagePath} />
                 <div className="ownerData">
-        <Link to={`users/${this.props.data.userExternalID}`}>{this.props.data.displayName}</Link>
+                <Link to={`users/${this.props.data.userExternalID}`}>{this.props.data.displayName}</Link>
                 </div>
                 <div className="icons">
                     <div className="iconContainer">
