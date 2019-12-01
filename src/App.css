@@ -139,9 +139,24 @@
 }
 .commentItem .userData{
   width: 34%;
+  display: flex;
+}
+.commentItem .userData > *{
+  width: 100%;
+}
+.commentItem .userData .userName{
+  margin-left: 5%;
+}
+.commentItem .userData .avatar{
+  background-size: cover;
+  background-position: center;
+  padding: 10%;
 }
 .commentItem .messageData{
   width: 66%;
+}
+.commentItem .messageData .messageContent{
+  height: 75%;
 }
 .commentItem .messageMetaData{
   display: flex;
