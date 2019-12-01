@@ -72,4 +72,21 @@ if(!function_exists('getCommentsForPost')){
     }
 }
 
+if(!function_exists('getIdFromExternalID')){
+    function getIdFromExternalID( $type, $externalID ){
+        global $db;
+        $query = "SELECT `id` FROM `$type` WHERE `externalID` = ?";
+        $availableTargets = ['comments','posts','users'];
+        if(!in_array($type, $availableTargets)){
+            throw new Exception('cannot retrieve id from '. $type);
+        }
+        $result = prepare_statement($query, [$externalID]);
+        if(!$result){
+            throw new Exception('error exchanging external ID for internal ID' . $db->error);
+        }
+        $data = $result->fetch_assoc();
+        return $data['id'];
+    }
+}
+
 ?>
