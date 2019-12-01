@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentList from '../comments/CommentList.js';
+import UserDisplay from '../userDisplay/UserDisplay.js';
 
 class GalleryItemDetails extends React.Component{
     constructor(props){
@@ -31,6 +32,7 @@ class GalleryItemDetails extends React.Component{
         }
         return(
             <div className="galleryDetails">
+                <UserDisplay id={this.state.data.userExternalID} />
                 <div className="imageContainer" style={{backgroundImage:`url(${'/'+this.state.data.imagePath})`}}>
                     <div className="icons">
                         <div className="iconContainer">

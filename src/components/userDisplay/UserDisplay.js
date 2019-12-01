@@ -22,6 +22,9 @@ class UserDisplay extends React.Component{
             });
     }
     render(){
+        if(this.state.data === null){
+            return <div>Loading data...</div>
+        }
         return (
             <div className="userData">
                 <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>

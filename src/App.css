@@ -128,6 +128,18 @@
 .galleryDetails .postCaption{
   color: black;
 }
+.galleryDetails .userData{
+  height: 10%;
+  display: flex;
+}
+.galleryDetails .userData .avatar{
+  width: 20%;
+  background-size: cover;
+  background-position: center;
+}
+.galleryDetails .userData .userName{
+  width: 80%;
+}
 
 /* comment items */
 
