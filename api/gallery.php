@@ -3,7 +3,7 @@
 require_once('functions.php');
 set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
-
+print("moo");
 if(!empty($_GET['id'])){
     $query = "SELECT p.`id`, p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`, p.`originalName`, p.`caption`, p.`added`,
     u.`externalID` as userExternalID, u.`displayName`

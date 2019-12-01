@@ -15,7 +15,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path={['/','/gallery']}><Gallery /></Route>
           <Route path="/gallery/add/"><GalleryItemAdd /></Route>
-          <Route path="/gallery/:id"><GalleryItemDetails /></Route>
+          <Route path="/gallery/:id" component={GalleryItemDetails} />
         </Switch>
       </div>
     );

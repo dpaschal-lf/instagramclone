@@ -5,16 +5,19 @@ class GalleryItemDetails extends React.Component{
         super(props);
         this.updateData = this.updateData.bind( this );
         this.state = {
-            data: {}
+            data: null
         }
     }
     componentDidMount(){
-        this.getGalleryData();
+        this.getDetails();
     }
     getDetails(){
-        fetch('api/gallery.php?id='+this.props.match.params.id)
+        fetch('/api/gallery.php?id='+this.props.match.params.id)
             .then( response => response.json() )
-            .then( this.updateData );
+            .then( this.updateData )
+            .catch( (...args) => {
+                console.log("huh"+args);
+            })
     }
     updateData( response ){
         this.setState( {
@@ -22,6 +25,9 @@ class GalleryItemDetails extends React.Component{
         })
     }
     render(){
+        if(this.state.data === null){
+            return <div>Loading data...</div>
+        }
         return(
             <div className="galleryDetails">
                 <img className="background" alt={this.props.data.originalImage} src={this.props.data.imagePath} />
