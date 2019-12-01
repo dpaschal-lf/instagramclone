@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentList from '../comments/CommentList.js';
 
 class GalleryItemDetails extends React.Component{
     constructor(props){
@@ -45,9 +46,7 @@ class GalleryItemDetails extends React.Component{
                     </div>
                 </div>
                 <div className="postCaption">{this.state.data.caption}</div>
-                <div className="commentContainer">
-
-                </div>
+                <CommentList postID={this.state.data.externalID} />
             </div>
         );
     }
