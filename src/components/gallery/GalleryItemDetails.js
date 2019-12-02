@@ -32,7 +32,7 @@ class GalleryItemDetails extends React.Component{
         }
         return(
             <div className="galleryDetails">
-                <UserDisplay id={this.state.data.userExternalID} />
+                <UserDisplay id={this.state.data.userExternalID} display="medium"/>
                 <div className="imageContainer" style={{backgroundImage:`url(${'/'+this.state.data.imagePath})`}}>
                     <div className="icons">
                         <div className="iconContainer">
