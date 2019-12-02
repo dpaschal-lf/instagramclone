@@ -25,12 +25,30 @@ class UserDisplay extends React.Component{
         if(this.state.data === null){
             return <div>Loading data...</div>
         }
-        return (
-            <div className="userData">
-                <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
-                <div className="userName">{this.state.data.displayName}</div>
-            </div>
-        )
+        switch( this.state.display ){
+            default:
+                return (
+                    <div className="userData small">
+                        <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
+                        <div className="userName">{this.state.data.displayName}</div>
+                    </div>
+                )
+            case 'medium':
+                return(
+                    <div className="userData medium">
+                        <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
+                        <div className="userName">{this.state.data.displayName}</div>
+                        <div className="userAdded">{this.state.data.joined}</div>
+                    </div>
+                );
+            case 'large':
+                    return(
+                        <div className="userData large">
+                            <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
+                            <div className="userName">{this.state.data.displayName}</div>
+                            <div className="userAdded">{this.state.data.joined}</div>
+                        </div>
+                    );
     }
 }
 
