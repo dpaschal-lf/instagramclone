@@ -54,7 +54,7 @@ if(!function_exists('getCommentsForPost')){
         }
         $postID = intval($postID);
         $query = "SELECT c.`externalID`, c.`added`, c.`message`, c.`edited`,
-            u.`avatar`, u.`externalID` AS userExternalID, u.`displayName`
+            u.`avatar`, u.`externalID` AS userExternalID, u.`displayName`, u.`joined`
             FROM `comments` AS c
             LEFT JOIN `users` AS u
                 ON u.`id` = c.`userID`

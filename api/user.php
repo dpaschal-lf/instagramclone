@@ -8,7 +8,7 @@ if(empty($_GET['id'])){
     throw new Exception('must provide id');
 }
 
-$query = "SELECT `avatar`, `displayName` FROM `users` WHERE `externalID` = ?";
+$query = "SELECT `avatar`, `displayName`, `joined` FROM `users` WHERE `externalID` = ?";
 $result = prepare_statement($query, [$_GET['id']]);
 
 if(!$result){
