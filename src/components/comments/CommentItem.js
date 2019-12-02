@@ -2,10 +2,13 @@ import React from 'react';
 import UserDisplay from '../userDisplay/UserDisplay.js';
 
 export default props => {
-    console.log(props.data)
     return (
         <div className="commentItem">
-            <UserDisplay  display="small" data={{ avatar: props.data.avatar, displayName: props.data.displayName}} id={props.data.userExternalID}/>
+            <UserDisplay  display="small" data={{ 
+                avatar: props.data.avatar, 
+                displayName: props.data.displayName, 
+                joined: props.data.joined 
+            }} id={props.data.userExternalID}/>
             <div className="messageData">
                 <div className="messageContent">{props.data.message}</div>
                 <div className="messageMetaData">
