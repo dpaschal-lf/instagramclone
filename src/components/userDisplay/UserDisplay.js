@@ -25,14 +25,7 @@ class UserDisplay extends React.Component{
         if(this.state.data === null){
             return <div>Loading data...</div>
         }
-        switch( this.state.display ){
-            default:
-                return (
-                    <div className="userData small">
-                        <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
-                        <div className="userName">{this.state.data.displayName}</div>
-                    </div>
-                )
+        switch( this.props.display ){
             case 'medium':
                 return(
                     <div className="userData medium">
@@ -42,13 +35,21 @@ class UserDisplay extends React.Component{
                     </div>
                 );
             case 'large':
-                    return(
-                        <div className="userData large">
-                            <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
-                            <div className="userName">{this.state.data.displayName}</div>
-                            <div className="userAdded">{this.state.data.joined}</div>
-                        </div>
-                    );
+                return(
+                    <div className="userData large">
+                        <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
+                        <div className="userName">{this.state.data.displayName}</div>
+                        <div className="userAdded">{this.state.data.joined}</div>
+                    </div>
+                );
+            default:
+                return (
+                    <div className="userData small">
+                        <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
+                        <div className="userName">{this.state.data.displayName}</div>
+                    </div>
+                )
+        }
     }
 }
 
