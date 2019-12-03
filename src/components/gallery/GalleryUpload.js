@@ -14,7 +14,7 @@ class GalleryUpload extends React.Component{
     handleFileSelect(e){
         const data = new FormData();
         const files = e.target.files;
-        data.append( files[ 0 ].name, files[ 0 ]);
+        data.append( 'uploadFile', files[ 0 ]);
 
         const reader = new FileReader();
         
@@ -30,7 +30,8 @@ class GalleryUpload extends React.Component{
         
     }
     uploadFile(){
-        fetch( `${process.env.PUBLIC_URL}/uploadpost.php`,{
+
+        fetch( `/api/uploadpost.php`,{
             'method': 'POST',
             'body': this.state.fileData
         })
