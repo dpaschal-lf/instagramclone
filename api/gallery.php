@@ -10,8 +10,8 @@ if(!empty($_GET['id'])){
     FROM `posts` AS p
         JOIN `users` AS u
             ON u.`id` = p.`userID`
-    WHERE p.`id`=1 AND p.`status`='active'";
-    $result = $db->query($query);
+    WHERE p.`externalID`=? AND p.`status`='active'";
+    $result = prepare_statement($query, [$_GET['id']]);
     if(!$result){
         throw new Exception('problem with query: '.$db->error);
     }
