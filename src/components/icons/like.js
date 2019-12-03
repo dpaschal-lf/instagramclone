@@ -12,7 +12,12 @@ class Like extends React.Component{
     updateLikes(){
         fetch('/api/likes.php?postID='+ this.props.postID)
             .then( response => response.json() )
-            .then( response => this.setState({ count : this.state.count + response.alterAmount}));
+            .then( response => {
+                this.setState({ 
+                    count : this.state.count + response.alterAmount,
+                    likedClass : response.alterAmount > 0 ? 'liked' : ''
+                } );
+            });
     }
     render(){
         return(
