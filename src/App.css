@@ -224,3 +224,6 @@
   color: black;
   filter: drop-shadow(1px 1px 2px white);
 }
+.uploadContainer .itemHovered{
+  border: 4px dashed green;
+}
