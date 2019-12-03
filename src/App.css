@@ -77,15 +77,19 @@
   color: lime;
 }
 .galleryItem .iconContainer > .iconBody{
-  font-size: 1em;
+  font-size: 1.5em;
+  display: inline-block;
+  color: inherit;
+  position: relative;
 }
-.galleryItem .iconContainer > .iconData{
+
+.galleryItem .iconData{
+  position: absolute;
   left: 50%;
   top: 50%;
-  font-size: 1em;
-  font-weight: bold;
   transform: translate(-50%, -50%);
   color: blue;
+  font-size: .5em;
 }
 .galleryItem .icons{
   transform: translateY(120%);
