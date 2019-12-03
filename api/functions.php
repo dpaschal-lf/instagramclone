@@ -5,7 +5,7 @@ $userExternalID = 'nb239uhi24bi4';
 if(!function_exists('handleExceptions')){
     function handleExceptions( $error ){
         http_response_code(500);
-        print( json_encode( ['error'=> $error->getMessage()] ));
+        print( json_encode( ['error'=> "File {$error->getFile()}:Line {$error->getLine()} - {$error->getMessage()}"] ));
     }
 }
 if(!function_exists('prepare_statement')){
