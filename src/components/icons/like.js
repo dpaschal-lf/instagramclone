@@ -5,7 +5,8 @@ class Like extends React.Component{
         super(props);
         this.updateLikes = this.updateLikes.bind( this );
         this.state = {
-            count: parseInt(props.count)
+            count: parseInt(props.count),
+            likedClass: this.props.added!==null ? 'liked' : ''
         }
     }
     updateLikes(){
@@ -16,7 +17,7 @@ class Like extends React.Component{
     render(){
         return(
             <div className="iconContainer" onClick={this.updateLikes}>
-                <i className="fas fa-heart iconBody shadowed">
+                <i className={`fas fa-heart iconBody shadowed ${ this.state.likedClass }`} title={this.props.added}>
                     <div className="iconData">{this.state.count}</div>
                 </i>
                 
