@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentList from '../comments/CommentList.js';
 import UserDisplay from '../userDisplay/UserDisplay.js';
+import Like from '../icons/like.js';
 
 class GalleryItemDetails extends React.Component{
     constructor(props){
@@ -35,6 +36,8 @@ class GalleryItemDetails extends React.Component{
                 <UserDisplay id={this.state.data.userExternalID} display="medium"/>
                 <div className="imageContainer" style={{backgroundImage:`url(${'/'+this.state.data.imagePath})`}}>
                     <div className="icons">
+                        <Like count={parseFloat(this.state.data.likes)} postID={this.props.match.params.id} />
+
                         <div className="iconContainer">
                             <i className="fas fa-heart iconBody">
                                 <div className="iconData">{this.state.data.likes}</div>
