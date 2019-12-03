@@ -10,7 +10,6 @@ class GalleryItem extends React.Component{
         }
     }
     exposeData(){
-        console.log(this.state.exposed)
         this.setState({
             exposed: !this.state.exposed
         })
