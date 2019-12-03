@@ -22,20 +22,32 @@ require_once('mysql_connect.php');
 
 $internalUserID = getIdFromExternalID( 'users', $userExternalID );
 
-$query = "INSERT INTO `posts` SET `externalID`= ?, `userID` = ?, `caption` = ?, `likes` = 0, `added` = NOW(), `updated` = NOW(), `commentCount` = 0, `status` = 'active', `extension` = ?";
+$query = "INSERT INTO `posts` SET 
+    `externalID`= ?, 
+    `userID` = ?, 
+    `caption` = ?, 
+    `likes` = 0, 
+    `added` = NOW(), 
+    `updated` = NOW(), 
+    `commentCount` = 0, 
+    `status` = 
+    'active', 
+    `originalName` = ?,
+    `extension` = ?";
 
 $result = prepare_statement($query, [
-    $newFileName.'.'.$filePathInfo['extension'],
+    $newFileName,
     $internalUserID,
     'caption',
+    $_FILES['uploadFile']['name'],
     $filePathInfo['extension']
 ]);
 
-if(!$result){
+if($result->error){
     throw new Exception('error updating post entry ' . $db->error );
 }
 if($db->affected_rows===0){
     throw new Exception('error uploading data to db');
 }
-
+print( json_encode( ['success'=>true]));
 ?>
