@@ -39,7 +39,7 @@ class GalleryUpload extends React.Component{
                 return response.json()
             })
             .then( (response)=>{
-                console.log('file uploaded');
+                this.props.history.push('/');
             })
     }
     render(){
