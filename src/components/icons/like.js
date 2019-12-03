@@ -9,7 +9,7 @@ class Like extends React.Component{
         }
     }
     updateLikes(){
-        fetch('/api/likes.php?'+ this.props.postID)
+        fetch('/api/likes.php?postID='+ this.props.postID)
             .then( response => response.json() )
             .then( response => this.setState({ count : this.state.count + response.alterAmount}));
     }
