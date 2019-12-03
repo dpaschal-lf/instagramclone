@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Like from '../icons/like.js';
 
 class GalleryItem extends React.Component{
     constructor(props){
@@ -22,6 +23,7 @@ class GalleryItem extends React.Component{
                     <Link to={`users/${this.props.data.userExternalID}`}>{this.props.data.displayName}</Link>
                 </div>
                 <div className="icons">
+                    <Like count={this.props.data.likes} postID={this.props.data.externalID} />
                     <div className="iconContainer">
                         <i className="fas fa-heart iconBody shadowed"></i>
                         <div className="iconData">{this.props.data.likes}</div>
