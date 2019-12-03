@@ -27,10 +27,13 @@ if(!empty($_GET['id'])){
 
 
 $query = "SELECT p.`userID`, p.`externalID`, p.`likes`, p.`commentCount`, p.`extension`, p.`originalName`,
-    u.externalID as userExternalID, u.displayName
+    u.externalID as userExternalID, u.displayName,
+    l.`added` AS likeAdded
     FROM `posts` AS p
         JOIN `users` AS u
             ON u.`id` = p.`userID`
+        LEFT JOIN `likes` AS l
+            ON u.`id` = l.`userID` AND p.`id` = l.`postID`
     WHERE p.`status`='active'";
 
 $result = $db->query($query);
