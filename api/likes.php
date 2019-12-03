@@ -54,6 +54,6 @@ if(! $db->query('COMMIT') ){
     throw new Exception('error commiting transaction');
 }
 
-print( json_encode( ['alterAmount'=>intval($direction)] ));
+print( json_encode( ['alterAmount'=>intval($direction) , 'likeTime'=> date('Y-m-d H:i:s')] ));
 
 ?>
