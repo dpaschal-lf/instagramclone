@@ -17,15 +17,14 @@ $result = $db->query($query);
 if(!$result){
     throw new Exception('invalid like query '. $db->error);
 }
-$transactionResult = $db->query('START TRANSACTION');
-if(!$transactionResult){
+if(! $db->query('START TRANSACTION') ){
     throw new Exception('error starting transaction');
 }
 if($result->num_rows===0){
     $direction = '+1';
     $query = "INSERT INTO `likes` SET 
         `userID` = {$userInternalID},
-        `postID` = {$userInternalID},
+        `postID` = {$postInternalID},
         `added` = NOW()
     ";
 } else {
@@ -51,13 +50,9 @@ if($db->affected_rows===0){
     throw new Exception('error updating like aggregate count');
 }
 
-$transactionResult = $db->query('COMMIT');
-if(!$transactionResult){
-    throw new Exception('error starting transaction');
+if(! $db->query('COMMIT') ){
+    throw new Exception('error commiting transaction');
 }
-
-$row =  $result->fetch_assoc();
-$row['avatar'] = "images/{$_GET['id']}/{$row['avatar']}";
 
 print( json_encode( ['alterAmount'=>intval($direction)] ));
 
