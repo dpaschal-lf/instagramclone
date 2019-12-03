@@ -1,12 +1,17 @@
 import React from 'react';
 import CommentItem from './CommentItem.js';
+import CommentAdd from './CommentAdd.js';
+import { thisExpression } from '@babel/types';
 
 class CommentList extends React.Component{
     constructor(props){
         super(props);
         this.receiveData = this.receiveData.bind( this );
+        this.showAddComment = this.showAddComment.bind( this );
+        this.handleListUpdated = this.handleListUpdated.bind( this );
         this.state = {
-            data: []
+            data: [],
+            showAdd: false
         }
     }
     componentDidMount(){
@@ -22,10 +27,21 @@ class CommentList extends React.Component{
             data: response
         })
     }
+    handleListUpdated(){
+        this.setState({
+            showAdd: !this.state.showAdd
+        })        
+    }
+    showAddComment(){
+        this.setState({
+            showAdd: !this.state.showAdd
+        })
+    }
     render(){
         return(
             <div className="commentContainer">
                 { this.state.data.map( data => <CommentItem data={data} key={data.externalID} />)}
+                { this.state.showAdd ? <CommentAdd updateCallback={this.handleListUpdated} postID={thisExpression.props.postID}/> : <button onClick={this.showAddComment}>+</button> }
             </div>
         );        
     }
