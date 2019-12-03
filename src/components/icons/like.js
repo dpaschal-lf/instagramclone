@@ -16,8 +16,10 @@ class Like extends React.Component{
     render(){
         return(
             <div className="iconContainer" onClick={this.updateLikes}>
-                <i className="fas fa-heart iconBody shadowed"></i>
-                <div className="iconData">{this.state.count}</div>
+                <i className="fas fa-heart iconBody shadowed">
+                    <div className="iconData">{this.state.count}</div>
+                </i>
+                
             </div>            
         );
     }
