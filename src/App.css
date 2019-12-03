@@ -5,10 +5,19 @@
   border-radius: 5%;
   overflow: hidden;
   height: 100vh;
+  padding: 2vh 2vw;
 }
 .app a{
   text-decoration: none;
   color: inherit;
+}
+.app .header{
+  height: 10vh;
+}
+.button{
+  padding: 2%;
+  border: 2px inset grey;
+  background-color: lightgrey;
 }
 .galleryContainer{
   /* column-count: 1;
@@ -182,4 +191,31 @@
 }
 .commentItem .messageMetaData .messageEdited::before{
   content: 'edited: ';
+}
+
+/* file upload */
+
+.uploadContainer{
+  height: 50vh;
+}
+.uploadContainer .uploadDropZone{
+  height: 100%;
+  width: 100%;
+  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+  align-content: center;
+}
+.uploadContainer .input{
+  border: 1px solid black;
+}
+.uploadContainer #fileInput{
+  display: none;
+}
+.uploadContainer .additionalMessage{
+  color: black;
+  filter: drop-shadow(1px 1px 2px white);
 }
