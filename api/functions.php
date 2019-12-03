@@ -1,5 +1,7 @@
 <?php
 
+$userExternalID = 'nb239uhi24bi4';
+
 if(!function_exists('handleExceptions')){
     function handleExceptions( $error ){
         http_response_code(500);
@@ -87,6 +89,21 @@ if(!function_exists('getIdFromExternalID')){
         }
         $data = $result->fetch_assoc();
         return $data['id'];
+    }
+}
+
+if(!function_exists('generateRandomString')){
+    function generateRandomString( $length = 20){
+        $count = 0;
+        $output = '';
+        $availableLetters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $availableLength = strlen( $availableLetters );
+        while($count < $length){
+            $letter = $availableLetters[ rand(0, $availableLength) ];
+            $output .= $letter;
+            $count++;
+        }
+        return $output;
     }
 }
 
