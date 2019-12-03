@@ -36,7 +36,7 @@ class GalleryItemDetails extends React.Component{
                 <UserDisplay id={this.state.data.userExternalID} display="medium"/>
                 <div className="imageContainer" style={{backgroundImage:`url(${'/'+this.state.data.imagePath})`}}>
                     <div className="icons">
-                        <Like count={parseFloat(this.state.data.likes)} postID={this.props.match.params.id} />
+                        <Like count={parseFloat(this.state.data.likes)} postID={this.props.match.params.id} added={this.state.data.likeAdded}/>
 
                         <div className="iconContainer">
                             <i className="fas fa-heart iconBody">
