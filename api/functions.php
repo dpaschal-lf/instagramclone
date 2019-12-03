@@ -97,7 +97,7 @@ if(!function_exists('generateRandomString')){
         $count = 0;
         $output = '';
         $availableLetters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-        $availableLength = strlen( $availableLetters );
+        $availableLength = strlen( $availableLetters )-1;
         while($count < $length){
             $letter = $availableLetters[ rand(0, $availableLength) ];
             $output .= $letter;
