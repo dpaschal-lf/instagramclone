@@ -30,7 +30,7 @@ class UserDisplay extends React.Component{
                 return(
                     <div className="userData medium">
                         <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
-                        <div className="userName">{this.state.data.displayName}</div>
+                        <div className="userName shadowed">{this.state.data.displayName}</div>
                         <div className="userAdded">{this.state.data.joined}</div>
                     </div>
                 );
@@ -38,7 +38,7 @@ class UserDisplay extends React.Component{
                 return(
                     <div className="userData large">
                         <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
-                        <div className="userName">{this.state.data.displayName}</div>
+                        <div className="userName shadowed">{this.state.data.displayName}</div>
                         <div className="userAdded">{this.state.data.joined}</div>
                     </div>
                 );
@@ -46,7 +46,7 @@ class UserDisplay extends React.Component{
                 return (
                     <div className="userData small">
                         <div className="avatar" style={{backgroundImage: `url(/${this.state.data.avatar})`}}></div>
-                        <div className="userName">{this.state.data.displayName}</div>
+                        <div className="userName shadowed">{this.state.data.displayName}</div>
                     </div>
                 )
         }
