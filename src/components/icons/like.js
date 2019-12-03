@@ -5,7 +5,7 @@ class Like extends React.Component{
         super(props);
         this.updateLikes = this.updateLikes.bind( this );
         this.state = {
-            count: props.count
+            count: parseInt(props.count)
         }
     }
     updateLikes(){
