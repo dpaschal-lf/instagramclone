@@ -5,16 +5,24 @@ class GalleryUpload extends React.Component{
         super(props);
         this.handleFileSelect = this.handleFileSelect.bind( this );
         this.uploadFile = this.uploadFile.bind( this );
+        this.handleItemDraggedOver = this.handleItemDraggedOver.bind( this );
+        this.handleItemDraggedLeave = this.handleItemDraggedLeave.bind( this );
+        this.handleItemDropped = this.handleItemDropped.bind( this );
         this.state = {
             displayBackground: '/dropzone.png',
             additionalMessage: '',
-            fileData: null
+            fileData: null,
+            hoverClass: null
         }
     }
     handleFileSelect(e){
-        const data = new FormData();
         const files = e.target.files;
-        data.append( 'uploadFile', files[ 0 ]);
+        this.prepFileUpload( files[0] );
+        
+    }
+    prepFileUpload( file ){
+        const data = new FormData();
+        data.append( 'uploadFile', file);
 
         const reader = new FileReader();
         
@@ -26,8 +34,7 @@ class GalleryUpload extends React.Component{
                 fileData: data
             })
         }   
-        const thing = reader.readAsDataURL( files[0] );  
-        
+        const thing = reader.readAsDataURL( file );          
     }
     uploadFile(){
 
@@ -42,10 +49,27 @@ class GalleryUpload extends React.Component{
                 this.props.history.push('/');
             })
     }
+    handleItemDraggedLeave(){
+        this.setState({
+            hoverClass: ''
+        });
+    }
+    handleItemDraggedOver(e){
+        e.preventDefault();
+        this.setState({
+            hoverClass: 'itemHovered'
+        });
+    }
+    handleItemDropped(e){
+        e.preventDefault();
+        e.stopPropagation();
+        const dataTransfer = e.dataTransfer;
+        this.prepFileUpload( dataTransfer.files[0]);
+    }
     render(){
         return(
             <div className="uploadContainer">
-                <label for="fileInput" className="uploadDropZone" style={{backgroundImage:`url(${this.state.displayBackground})`}}>
+                <label onDrop={this.handleItemDropped} onDragLeave={this.handleItemDraggedLeave} onDragOver={ this.handleItemDraggedOver } onDragEnter={ this.handleItemDraggedOver } htmlFor="fileInput" className={`uploadDropZone ${this.state.hoverClass}`} style={{backgroundImage:`url(${this.state.displayBackground})`}}>
                     <div className="additionalMessage">{this.state.additionalMessage}</div>
                 </label>
                 <input id="fileInput" type="file" onChange={this.handleFileSelect}/>
