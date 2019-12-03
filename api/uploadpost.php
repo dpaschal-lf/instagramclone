@@ -4,7 +4,7 @@ require_once('functions.php');
 set_exception_handler('handleExceptions');
 
 if(empty($_FILES)){
-    throw new Exception('no data uploaded');
+    throw new Exception('file data empty');
 }
 $acceptableFileExtensions = ['jpg','jpeg','gif','png'];
 $filePathInfo = pathinfo($_FILES['uploadFile']['name']);
