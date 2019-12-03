@@ -24,10 +24,6 @@ class GalleryItem extends React.Component{
                 </div>
                 <div className="icons">
                     <Like count={this.props.data.likes} postID={this.props.data.externalID} />
-                    <div className="iconContainer">
-                        <i className="fas fa-heart iconBody shadowed"></i>
-                        <div className="iconData">{this.props.data.likes}</div>
-                    </div>
                     <Link to={`/comments/${this.props.data.externalID}`} className="iconContainer">
                         <i className="fas fa-comment iconBody shadowed"></i>
                         <div className="iconData">{this.props.data.commentCount}</div>
