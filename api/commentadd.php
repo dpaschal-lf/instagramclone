@@ -40,15 +40,16 @@ if(!$result || $db->affected_rows===0){
     throw new Exception('error with query ' . $db->error);
 }
 
-$query = "UPDATE `posts` SET `commentCount` = `commentCount` + 1 WHERE `id`= $internalPostID";
-
+$query = "UPDATE `posts` SET `commentCount` = (`commentCount` + 1) WHERE `id`= $internalPostID";
+print($query);
 $result = $db->query($query);
 
 if(!$result){
     throw new Exception('error with post query');
 }
+var_dump(mysqli_error($db));
 if($db->affected_rows!==1){
-    throw new Exception('error with post update query');
+    throw new Exception('error with post Update query'.$db->error);
 }
 
 if(!$db->query('COMMIT')){
