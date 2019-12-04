@@ -185,6 +185,7 @@
 }
 .commentItem .messageData{
   width: 66%;
+  display: flex;
 }
 .commentItem .messageData .messageContent{
   height: 75%;
