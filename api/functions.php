@@ -107,4 +107,12 @@ if(!function_exists('generateRandomString')){
     }
 }
 
+if(!function_exists('getBodyData')){
+    function getBodyData(){
+        $bodyContent = file_get_contents('php://input');
+        $data = json_decode($bodyContent, true);
+        return $data;
+    }
+}
+
 ?>
