@@ -1,7 +1,7 @@
 import React from 'react';
 import UserDisplay from '../userDisplay/UserDisplay.js';
 
-class ComentAdd extends React.Component{
+class CommentAdd extends React.Component{
     constructor(props){
         super(props);
         this.updateField = this.updateField.bind( this );
@@ -26,14 +26,14 @@ class ComentAdd extends React.Component{
             method: 'post',
             body: JSON.stringify( data )
         }).then( ()=>
-            thiis.props.updateCallback()
+            this.props.updateCallback()
         )
     }
     render(){
         return (
             <div className="commentItem">
                 <div className="messageData">
-                    <textarea name="commentMessage" onUpdate={this.updateField}>
+                    <textarea name="commentMessage" onChange={this.updateField}>
 
                     </textarea>
                     <button type="button" onClick={this.postComment}>Comment</button>
@@ -42,3 +42,5 @@ class ComentAdd extends React.Component{
         );
     }
 }
+
+export default CommentAdd;
