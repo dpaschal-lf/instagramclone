@@ -14,19 +14,22 @@ if(empty($postData['commentMessage'])){
 }
 $internalPostID = getIdFromExternalID( 'posts', $postData['postID'] );
 $internalUserID = getIdFromExternalID( 'users', $userExternalID);
+$externalID = generateRandomString(20);
 
 $query = "INSERT INTO `comments` SET
         `userID` = ?,
         `postID` = ?,
         `added` = NOW(),
         `message` = ?,
+        `externalID` = ?,
         `status` = 'visible',
         `edited` = NULL
     ";
 $result = prepare_statement($query, [
     $internalUserID,
     $internalPostID,
-    $postData['commentMessage']
+    $postData['commentMessage'],
+    $externalID
 ]);
 
 if(!$result || $db->affected_rows===0){
