@@ -41,7 +41,7 @@ class CommentList extends React.Component{
     render(){
         return(
             <div className="commentContainer">
-                { this.state.data.map( data => <CommentItem data={data} key={data.externalID} />)}
+                { this.state.data.map( data => <CommentItem data={data} key={data.externalID} updateCallback={this.handleListUpdated}/>)}
                 { this.state.showAdd ? <CommentAdd updateCallback={this.handleListUpdated} postID={this.props.postID}/> : <button onClick={this.showAddComment}>+</button> }
             </div>
         );        
