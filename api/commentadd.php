@@ -20,7 +20,7 @@ $query = "INSERT INTO `comments` SET
         `postID` = ?,
         `added` = NOW(),
         `message` = ?,
-        `status` = 'visible'
+        `status` = 'visible',
         `edited` = NULL
     ";
 $result = prepare_statement($query, [
