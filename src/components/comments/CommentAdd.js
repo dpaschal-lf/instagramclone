@@ -23,9 +23,10 @@ class CommentAdd extends React.Component{
     postComment(){
         const data = {...this.state.fields};
         data.postID = this.props.postID;
+
         fetch('/api/commentadd.php', {
             method: 'post',
-            body: JSON.stringify( data )
+            body: JSON.stringify(data)
         }).then( ()=>
             this.props.updateCallback()
         )
