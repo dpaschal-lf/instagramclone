@@ -30,7 +30,8 @@ class CommentList extends React.Component{
     handleListUpdated(){
         this.setState({
             showAdd: !this.state.showAdd
-        })        
+        });
+        this.getCommentData(); 
     }
     showAddComment(){
         this.setState({
