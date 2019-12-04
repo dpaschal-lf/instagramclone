@@ -5,6 +5,7 @@ class CommentAdd extends React.Component{
     constructor(props){
         super(props);
         this.updateField = this.updateField.bind( this );
+        this.postComment = this.postComment.bind( this );
         this.state = {
             fields: {}
         }
@@ -22,7 +23,7 @@ class CommentAdd extends React.Component{
     postComment(){
         const data = {...this.state.fields};
         data.postID = this.props.postID;
-        fetch('/api/addComment.php', {
+        fetch('/api/commentadd.php', {
             method: 'post',
             body: JSON.stringify( data )
         }).then( ()=>
