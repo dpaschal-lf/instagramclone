@@ -43,7 +43,7 @@ if(!function_exists('prepare_statement')){
         if(substr($query, 0, 6) === 'SELECT'){
             return $statement->get_result(); 
         }
-    
+        $statement->close();
         return $statement;
     }
 }
