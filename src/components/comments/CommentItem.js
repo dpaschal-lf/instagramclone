@@ -22,7 +22,7 @@ class CommentItem extends React.Component{
     }
     updateField( e ){
         const element = e.target;
-        const name = e.getAttribute('name');
+        const name = element.getAttribute('name');
         const value = element.value;
         const newFields = {...this.state.fields};
         newFields[name] = value;
@@ -31,6 +31,8 @@ class CommentItem extends React.Component{
         });
     }
     save(){
+        const data = {...this.state.fields};
+        data.commentID = this.props.data.externalID;
         fetch('/api/commentedit.php',{
             method: 'put',
             body: JSON.stringify( this.state.fields )
