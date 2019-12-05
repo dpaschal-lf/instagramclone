@@ -5,7 +5,7 @@ import Gallery from './components/gallery/Gallery.js';
 import GalleryItemDetails from './components/gallery/GalleryItemDetails.js';
 import GalleryItemAdd from './components/gallery/GalleryItemAdd.js';
 import GalleryUpload from './components/gallery/GalleryUpload.js';
-import Login from './components/connect/Login.js';
+import LoginComponent from './components/connect/Login.js';
 
 class App extends React.Component{
   constructor(props){
@@ -17,10 +17,13 @@ class App extends React.Component{
   }
   handleUserLogin( token ){
     localStorage.authToken = token;
+    this.setState({
+      token
+    })
   }
   render(){
     if(this.state.token === null){
-      return <Login success={this.handleUserLogin} failure={()=>{}}/>
+      return <LoginComponent success={this.handleUserLogin} failure={()=>{}}/>
     }
     return(
       <div className="app">
