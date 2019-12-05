@@ -127,14 +127,14 @@ if(!function_exists('hashString')){
 if(!function_exists('validateUser')){
     function validateUser(){
         $headers = apache_request_headers();
-        if(empty($headers['authToken'])){
+        if(empty($headers['auth-token'])){
             return false;
         }
-        $token = $headers['authToken'];
-        $query = "SELECT `id`,`externalID` FROM `users` WHERE `token`=?";
+        $token = $headers['auth-token'];
+        $query = "SELECT `id`,`externalID` FROM `sessions` WHERE `token`=?";
         $result = prepare_statement($query, [$token]);
         if(!$result){
-            throw new Exception('error validating user');
+            throw new Exception('error validating user '.$db->error);
         }
         if($result->num_rows === 0){
             return false;
