@@ -115,4 +115,13 @@ if(!function_exists('getBodyData')){
     }
 }
 
+if(!function_exists('hashString')){
+    function hashString( $string ){
+        $options = [
+            'cost' => 12,
+        ];
+        return password_hash( $string , PASSWORD_BCRYPT, $options);
+    }
+}
+
 ?>
