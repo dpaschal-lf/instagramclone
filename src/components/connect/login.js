@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 
 class Login extends React.Component{
     constructor(props){
@@ -7,7 +7,7 @@ class Login extends React.Component{
         this.handleLogin = this.handleLogin.bind( this );
         this.state = {
             fields: {
-                username: '',
+                email: '',
                 password: ''
             }
         }
@@ -38,9 +38,9 @@ class Login extends React.Component{
     render(){
         return(
             <div>
-                <input type="text" name="username" placeholder="user name"/>
-                <input type="password" name="password" placeholder="password"/>
-                <button>Log in</button>
+                <input onChange={this.handleUpdate} defaultValue="daniel.paschal@gmail.com" type="text" name="email" placeholder="user name"/>
+                <input onChange={this.handleUpdate} defaultValue="woohoo" type="password" name="password" placeholder="password"/>
+                <button onClick={this.handleLogin}>Log in</button>
                 <button>Create Account</button>
             </div>
         )
