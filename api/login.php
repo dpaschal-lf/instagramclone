@@ -26,10 +26,10 @@ if( $result->num_rows === 0){
 $userData = $result->fetch_assoc();
 
 if( password_verify( $postData['password'], $userData['password'])){
-    
+    $hashToken = md5( $userData['email'] + time() );
 }
-
-$data = getCommentsForPost( $internalPostID );
+$insertQuery = "INSERT INTO `sessions` SET `userID`=?, `loggedIn`=NOW(), `token`=?";
+$result = prepare_statement($insertQuery);
 print(json_encode($data));
 
 ?>
