@@ -7,6 +7,7 @@ class GalleryItemDetails extends React.Component{
     constructor(props){
         super(props);
         this.updateData = this.updateData.bind( this );
+        this.getDetails = this.getDetails.bind( this );
         this.state = {
             data: null
         }
@@ -45,7 +46,7 @@ class GalleryItemDetails extends React.Component{
                     </div>
                 </div>
                 <div className="postCaption">{this.state.data.caption}</div>
-                <CommentList postID={this.state.data.externalID} />
+                <CommentList postID={this.state.data.externalID} updateCallback={this.getDetails}/>
             </div>
         );
     }
