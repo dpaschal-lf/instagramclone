@@ -26,7 +26,7 @@ if( $result->num_rows === 0){
 $userData = $result->fetch_assoc();
 
 if( password_verify( $postData['password'], $userData['password'])){
-    $hashToken = md5( $postData['email'] + time() );
+    $hashToken = md5( $postData['email'] . time() );
 }
 $insertQuery = "INSERT INTO `sessions` SET `userID`=?, `externalID`=?, `loggedIn`=NOW(), `token`=?";
 $result = prepare_statement($insertQuery, [$userData['id'], $userData['externalID'], $hashToken]);
