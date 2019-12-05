@@ -13,7 +13,11 @@ class Gallery extends React.Component{
         this.getGalleryData();
     }
     getGalleryData(){
-        fetch('api/gallery.php')
+        fetch('api/gallery.php',{
+            headers: {
+                authToken: this.props.token
+            }
+        })
             .then( response => response.json() )
             .then( this.updateData );
     }

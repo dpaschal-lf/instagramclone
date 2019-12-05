@@ -18,7 +18,11 @@ class CommentList extends React.Component{
         this.getCommentData();
     }
     getCommentData(){
-        fetch('/api/comments.php?postID='+this.props.postID)
+        fetch('/api/comments.php?postID='+this.props.postID,{
+            headers:{
+                authToken: localStorage.authToken
+            }
+        })
             .then( response => response.json() )
             .then( this.receiveData)
     }

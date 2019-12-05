@@ -35,7 +35,10 @@ class CommentItem extends React.Component{
         data.commentID = this.props.data.externalID;
         fetch('/api/commentedit.php',{
             method: 'put',
-            body: JSON.stringify( data )
+            body: JSON.stringify( data ),
+            headers: {
+                authToken: localStorage.authToken
+            }                
         }).then ( ()=>{
             this.props.updateCallback();
             this.setState({

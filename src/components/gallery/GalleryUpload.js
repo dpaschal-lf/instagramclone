@@ -40,7 +40,10 @@ class GalleryUpload extends React.Component{
 
         fetch( `/api/uploadpost.php`,{
             'method': 'POST',
-            'body': this.state.fileData
+            'body': this.state.fileData,
+            headers: {
+                authToken: this.props.token
+            }                
         })
             .then( response => {
                 return response.json()

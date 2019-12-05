@@ -26,7 +26,10 @@ class CommentAdd extends React.Component{
 
         fetch('/api/commentadd.php', {
             method: 'post',
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: {
+                authToken: this.props.token
+            }                
         }).then( ()=>
             this.props.updateCallback()
         )

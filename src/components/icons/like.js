@@ -11,7 +11,11 @@ class Like extends React.Component{
         }
     }
     updateLikes(){
-        fetch('/api/likes.php?postID='+ this.props.postID)
+        fetch('/api/likes.php?postID='+ this.props.postID,{
+            headers:{
+                authToken: localStorage.authToken
+            }
+        })
             .then( response => response.json() )
             .then( response => {
                 this.setState({ 
