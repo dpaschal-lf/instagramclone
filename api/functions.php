@@ -125,10 +125,12 @@ if(!function_exists('hashString')){
 }
 
 if(!function_exists('validateUser')){
-    function validateUser($token){
-        if(empty($token)){
+    function validateUser(){
+        $headers = apache_request_headers();
+        if(empty($headers['authToken'])){
             return false;
         }
+        $token = $headers['authToken'];
         $query = "SELECT `id`,`externalID` FROM `users` WHERE `token`=?";
         $result = prepare_statement($query, [$token]);
         if(!$result){
