@@ -1,6 +1,6 @@
 <?php
 
-$userExternalID = 'nb239uhi24bi4';
+// $userExternalID = 'nb239uhi24bi4';
 
 if(!function_exists('handleExceptions')){
     function handleExceptions( $error ){
