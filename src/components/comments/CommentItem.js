@@ -12,7 +12,7 @@ class CommentItem extends React.Component{
             mode: 'display',
             fields: {
                 message: props.data.message
-            }
+            },
         }
     }
     beginEdit(){
@@ -35,9 +35,12 @@ class CommentItem extends React.Component{
         data.commentID = this.props.data.externalID;
         fetch('/api/commentedit.php',{
             method: 'put',
-            body: JSON.stringify( this.state.fields )
+            body: JSON.stringify( data )
         }).then ( ()=>{
             this.props.updateCallback();
+            this.setState({
+                mode: 'display'
+            })
         })
     }
     cancel(){
@@ -58,7 +61,7 @@ class CommentItem extends React.Component{
                         joined: this.props.data.joined 
                     }} id={this.props.data.userExternalID}/>
                     <div className="messageData">
-                        <div className="messageContent" >{this.props.data.message}</div>
+                        <div className="messageContent" >{this.state.fields.message}</div>
                         <button onClick={this.beginEdit}>edit</button>
                         <div className="messageMetaData">
                             <div className="messagePosted">{this.props.data.added}</div>
@@ -76,7 +79,7 @@ class CommentItem extends React.Component{
                         joined: this.props.data.joined 
                     }} id={this.props.data.userExternalID}/>
                     <div className="messageData">
-                        <textarea className="messageContent" name="message" onChange={this.updateField} defaultValue={this.props.data.message}>
+                        <textarea className="messageContent" name="message" onChange={this.updateField} defaultValue={this.state.fields.message}>
                         </textarea>
                         <div className="actionContainer">
                             <button onClick={this.save}>Save</button>
