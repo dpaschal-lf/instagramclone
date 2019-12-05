@@ -4,6 +4,11 @@ require_once('functions.php');
 set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
 
+if($userData = validateUser()){
+    throw new Exception('must be logged in');
+}
+$userExternalID = $userData['externalID'];
+
 $postData = getBodyData();
 
 if(empty($postData['commentID'])){
@@ -13,7 +18,8 @@ if(empty($postData['message'])){
     throw new Exception('must supply comment content');
 }
 $internalCommentID = getIdFromExternalID( 'comments', $postData['commentID'] );
-$internalUserID = getIdFromExternalID( 'users', $userExternalID);
+
+$internalUserID = $userData['id'];
 $externalID = generateRandomString(20);
 
 if(!$db->query('START TRANSACTION')){
