@@ -131,7 +131,7 @@ if(!function_exists('validateUser')){
             return false;
         }
         $token = $headers['auth-token'];
-        $query = "SELECT `id`,`externalID` FROM `sessions` WHERE `token`=?";
+        $query = "SELECT `userID` AS `id`,`externalID` FROM `sessions` WHERE `token`=?";
         $result = prepare_statement($query, [$token]);
         if(!$result){
             throw new Exception('error validating user '.$db->error);
