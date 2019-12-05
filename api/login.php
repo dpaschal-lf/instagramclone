@@ -33,6 +33,8 @@ $result = prepare_statement($insertQuery, [$userData['id'], $userData['externalI
 if(!$result || $db->affected_rows===0){
     throw new Exception('cannot create session');
 }
-print(json_encode($data));
+print(json_encode([
+    'token'=>$hashToken
+]));
 
 ?>
