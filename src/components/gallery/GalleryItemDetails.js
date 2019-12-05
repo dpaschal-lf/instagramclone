@@ -16,7 +16,13 @@ class GalleryItemDetails extends React.Component{
         this.getDetails();
     }
     getDetails(){
-        fetch('/api/gallery.php?id='+this.props.match.params.id)
+        fetch('/api/gallery.php?id='+this.props.match.params.id,
+            {
+                headers: {
+                    authToken: localStorage.authToken
+                }                
+            }
+        )
             .then( response => response.json() )
             .then( this.updateData )
             .catch( (...args) => {

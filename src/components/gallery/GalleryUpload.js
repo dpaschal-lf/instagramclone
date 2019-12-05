@@ -42,7 +42,7 @@ class GalleryUpload extends React.Component{
             'method': 'POST',
             'body': this.state.fileData,
             headers: {
-                authToken: this.props.token
+                authToken: localStorage.authToken
             }                
         })
             .then( response => {
