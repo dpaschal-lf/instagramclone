@@ -52,7 +52,6 @@ $result = $db->query($query);
 if(!$result){
     throw new Exception('error with post query');
 }
-var_dump(mysqli_error($db));
 if($db->affected_rows!==1){
     throw new Exception('error with post Update query'.$db->error);
 }
