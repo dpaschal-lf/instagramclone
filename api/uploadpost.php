@@ -48,7 +48,7 @@ $result = prepare_statement($query, [
     $filePathInfo['extension']
 ]);
 
-if($result->error){
+if($db->error){
     throw new Exception('error updating post entry ' . $db->error );
 }
 if($db->affected_rows===0){
