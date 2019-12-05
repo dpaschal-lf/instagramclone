@@ -22,7 +22,6 @@ if( $db->affected_rows === 0){
     throw new Exception('invalid token');
 }
 
-
 print(json_encode([
     'success'=>true
 ]));

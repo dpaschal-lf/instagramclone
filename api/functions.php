@@ -124,4 +124,18 @@ if(!function_exists('hashString')){
     }
 }
 
+if(!function_exists('validateUser')){
+    function validateUser($token){
+        $query = "SELECT `id`,`externalID` FROM `users` WHERE `token`=?";
+        $result = prepare_statement($query, [$token]);
+        if(!$result){
+            throw new Exception('error validating user');
+        }
+        if($result->num_rows === 0){
+            throw new Exception('invalid token');
+        }
+        return $result->fetch_assoc();
+    }
+}
+
 ?>
