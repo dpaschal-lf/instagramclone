@@ -13,7 +13,7 @@ if(empty($_GET['postID'])){
 }
 
 
-$internalUserID = $userData['id'];
+$userInternalID = $userData['id'];
 $postInternalID = getIdFromExternalID('posts', $_GET['postID']);
 
 $query = "SELECT id FROM `likes` WHERE `userID`={$userInternalID} AND `postID`={$postInternalID}";
