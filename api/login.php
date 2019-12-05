@@ -28,7 +28,7 @@ $userData = $result->fetch_assoc();
 if( password_verify( $postData['password'], $userData['password'])){
     $hashToken = md5( $postData['email'] + time() );
 }
-$insertQuery = "INSERT INTO `sessions` SET `userID`=?, 'externalID'=?, `loggedIn`=NOW(), `token`=?";
+$insertQuery = "INSERT INTO `sessions` SET `userID`=?, `externalID`=?, `loggedIn`=NOW(), `token`=?";
 $result = prepare_statement($insertQuery, [$userData['id'], $userData['externalID'], $hashToken]);
 if(!$result || $db->affected_rows===0){
     throw new Exception('cannot create session');
