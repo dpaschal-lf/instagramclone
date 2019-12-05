@@ -1,5 +1,4 @@
 import React from 'React';
-import { ReactComponent } from '*.svg';
 
 class Login extends React.Component{
     constructor(props){
@@ -47,3 +46,5 @@ class Login extends React.Component{
         )
     }
 }
+
+export default Login;
