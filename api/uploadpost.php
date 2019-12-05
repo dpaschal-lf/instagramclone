@@ -3,6 +3,11 @@
 require_once('functions.php');
 set_exception_handler('handleExceptions');
 
+if($userData = validateUser()){
+    throw new Exception('must be logged in');
+}
+$userExternalID = $userData['externalID'];
+
 if(empty($_FILES)){
     throw new Exception('file data empty');
 }
@@ -20,7 +25,7 @@ if(move_uploaded_file($_FILES['uploadFile']['tmp_name'], $filePath )){
 }
 require_once('mysql_connect.php');
 
-$internalUserID = getIdFromExternalID( 'users', $userExternalID );
+$internalUserID = $userData['id'];
 
 $query = "INSERT INTO `posts` SET 
     `externalID`= ?, 
