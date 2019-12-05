@@ -37,7 +37,7 @@ class CommentItem extends React.Component{
             method: 'put',
             body: JSON.stringify( data ),
             headers: {
-                authToken: localStorage.authToken
+                'auth-token': localStorage.authToken
             }                
         }).then ( ()=>{
             this.props.updateCallback();

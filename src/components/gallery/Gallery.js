@@ -15,7 +15,7 @@ class Gallery extends React.Component{
     getGalleryData(){
         fetch('api/gallery.php',{
             headers: {
-                authToken: localStorage.authToken
+                'auth-token': localStorage.authToken
             }
         })
             .then( response => response.json() )

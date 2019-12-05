@@ -19,7 +19,7 @@ class GalleryItemDetails extends React.Component{
         fetch('/api/gallery.php?id='+this.props.match.params.id,
             {
                 headers: {
-                    authToken: localStorage.authToken
+                    'auth-token': localStorage.authToken
                 }                
             }
         )

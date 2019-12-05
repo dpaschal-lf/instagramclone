@@ -28,7 +28,7 @@ class CommentAdd extends React.Component{
             method: 'post',
             body: JSON.stringify(data),
             headers: {
-                authToken: localStorage.authToken
+                'auth-token': localStorage.authToken
             }                
         }).then( ()=>
             this.props.updateCallback()
