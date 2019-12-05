@@ -4,11 +4,16 @@ require_once('functions.php');
 set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
 
+if($userData = validateUser()){
+    throw new Exception('must be logged in');
+}
+$userExternalID = $userData['externalID'];
 if(empty($_GET['postID'])){
     throw new Exception('must provide post id');
 }
 
-$userInternalID = getIdFromExternalID('users', $userExternalID);
+
+$internalUserID = $userData['id'];
 $postInternalID = getIdFromExternalID('posts', $_GET['postID']);
 
 $query = "SELECT id FROM `likes` WHERE `userID`={$userInternalID} AND `postID`={$postInternalID}";
