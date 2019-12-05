@@ -32,6 +32,7 @@ class CommentList extends React.Component{
             showAdd: false
         });
         this.getCommentData(); 
+        this.props.updateCallback();
     }
     showAddComment(){
         this.setState({
