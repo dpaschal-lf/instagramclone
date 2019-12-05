@@ -29,7 +29,7 @@ class CommentList extends React.Component{
     }
     handleListUpdated(){
         this.setState({
-            showAdd: !this.state.showAdd
+            showAdd: false
         });
         this.getCommentData(); 
     }
