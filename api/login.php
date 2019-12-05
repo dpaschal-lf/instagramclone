@@ -30,6 +30,9 @@ if( password_verify( $postData['password'], $userData['password'])){
 }
 $insertQuery = "INSERT INTO `sessions` SET `userID`=?, `loggedIn`=NOW(), `token`=?";
 $result = prepare_statement($insertQuery);
+if(!$result || $db->affected_rows===0){
+    throw new Exception('cannot create session');
+}
 print(json_encode($data));
 
 ?>
