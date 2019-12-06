@@ -12,7 +12,7 @@ if(empty($postData['email'])){
 if(empty($postData['password'])){
     throw new Exception('must supply a password');
 }
-$query = "SELECT `id`, `externalID`, `password` FROM `users` WHERE `email`=?";
+$query = "SELECT `id`, `externalID`, `password`, `displayName`, `avatar` FROM `users` WHERE `email`=?";
 
 $result = prepare_statement( $query , [$postData['email']]);
 
@@ -33,8 +33,10 @@ $result = prepare_statement($insertQuery, [$userData['id'], $userData['externalI
 if(!$result || $db->affected_rows===0){
     throw new Exception('cannot create session');
 }
+unset ($userData['id']);
 print(json_encode([
-    'token'=>$hashToken
+    'token'=>$hashToken,
+    'userData'=>$userData
 ]));
 
 ?>
