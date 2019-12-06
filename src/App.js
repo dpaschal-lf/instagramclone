@@ -6,29 +6,42 @@ import GalleryItemDetails from './components/gallery/GalleryItemDetails.js';
 import GalleryItemAdd from './components/gallery/GalleryItemAdd.js';
 import GalleryUpload from './components/gallery/GalleryUpload.js';
 import LoginComponent from './components/connect/Login.js';
+import UserDisplay from './components/userDisplay/UserDisplay.js'
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.handleUserLogin = this.handleUserLogin.bind( this );
+    this.handleUserLogout = this.handleUserLogout.bind( this );
     this.state = {
-      token: localStorage.getItem('authToken')
+      token: localStorage.getItem('authToken'),
+      userData: null
     }
   }
-  handleUserLogin( token ){
-    localStorage.authToken = token;
+  handleUserLogin( response){
+    debugger;
+    localStorage.authToken = response.token;
+    localStorage.authUser = response.userData.externalID;
+
     this.setState({
-      token
+      token: response.token,
+      userData: response.userData
     })
+  }
+  handleUserLogout(){
+    this.setState({
+      token: null
+    })  
   }
   render(){
     if(this.state.token === null){
-      return <LoginComponent success={this.handleUserLogin} failure={()=>{}}/>
+      return <LoginComponent success={this.handleUserLogin} failure={()=>{}} logout={this.handleUserLogout}/>
     }
     return(
       <div className="app">
         <header className="header">
           <Link to="/upload" className="button add">+</Link>
+          <UserDisplay  display="medium" data={this.state.userData}/>
         </header>
         
         <Switch>
