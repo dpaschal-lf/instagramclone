@@ -1,7 +1,6 @@
 import React from 'react';
 import CommentItem from './CommentItem.js';
 import CommentAdd from './CommentAdd.js';
-import { thisExpression } from '@babel/types';
 
 class CommentList extends React.Component{
     constructor(props){
