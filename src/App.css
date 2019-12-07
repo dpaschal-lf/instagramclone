@@ -17,6 +17,7 @@
 .header .operationPanel{
   width: 25%;
 }
+
 .button{
   padding: 2%;
   border: 2px inset grey;
@@ -157,8 +158,6 @@
 }
 .galleryDetails .userData .avatar{
   width: 20%;
-  background-size: cover;
-  background-position: center;
 }
 .galleryDetails .userData .userName{
   width: 80%;
@@ -255,4 +254,25 @@
 .loginDialog{
   margin: auto;
   text-align: center;
+}
+
+/*userdata */
+.userData .avatar{
+  background-size: cover;
+  background-position: center;
+}
+.userData.medium{
+  display: flex;
+  width: 75%;
+}
+.userData.medium .avatar{
+  width: 35%;
+  margin-right: 5%;
+}
+.userData.medium .userName{
+  width: 40%;
+}
+.userData.medium .userAdded{
+  width: 15%;
+  font-size: .5em;
 }
