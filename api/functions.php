@@ -143,4 +143,9 @@ if(!function_exists('validateUser')){
     }
 }
 
+if(!function_exists('generateImageURL')){
+    function generateImageURL($userID, $imageName){
+        return "images/{$userID}/{$imageName}";
+    }
+}
 ?>
