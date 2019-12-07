@@ -24,6 +24,7 @@ if( $result->num_rows === 0){
     throw new Exception('invalid email or password');
 }
 $userData = $result->fetch_assoc();
+$userData['avatar'] = generateImageURL($userData['externalID'], $userData['avatar']);
 
 if( password_verify( $postData['password'], $userData['password'])){
     $hashToken = md5( $postData['email'] . time() );
