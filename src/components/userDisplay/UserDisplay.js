@@ -14,7 +14,8 @@ class UserDisplay extends React.Component{
         }
     }
     getUserData(){
-        fetch(`/api/user.php?id=${this.props.id||localStorage.externalID}`,{
+        debugger;
+        fetch(`/api/user.php?id=${this.props.id||localStorage.authUser}`,{
             headers:{
                 'auth-token': localStorage.authToken
             }
