@@ -42,6 +42,7 @@ class Login extends React.Component{
         })
     }
     handleLogout(){
+        debugger;
         fetch('/api/logout.php',{
             headers: {
                 'auth-token': localStorage.authToken
@@ -70,6 +71,10 @@ class Login extends React.Component{
             )
         }
         switch(this.props.mode){
+            case 'logout': 
+                return (
+                    <button onClick={this.handleLogout}>logout</button>
+                )
             case 'small':
                 return (
                     <div className="smallLogin">
