@@ -12,6 +12,10 @@
 }
 .app .header{
   height: 10vh;
+  display: flex;
+}
+.header .operationPanel{
+  width: 25%;
 }
 .button{
   padding: 2%;
