@@ -40,7 +40,9 @@ class App extends React.Component{
     return(
       <div className="app">
         <header className="header">
-          <Link to="/upload" className="button add">+</Link>
+          <div className="operationPanel">
+            <Link to="/upload" className="">+</Link>
+          </div>
           <UserDisplay  display="medium" data={this.state.userData}/>
         </header>
         
