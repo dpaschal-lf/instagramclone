@@ -19,7 +19,6 @@ class App extends React.Component{
     }
   }
   handleUserLogin( response){
-    debugger;
     localStorage.authToken = response.token;
     localStorage.authUser = response.userData.externalID;
 
@@ -42,7 +41,7 @@ class App extends React.Component{
         <header className="header">
           <div className="operationPanel">
             <Link to="/upload" className="">+</Link>
-            { this.state.token === null ? <LoginComponent mode="modal"/> : "logout" }
+            <LoginComponent mode={this.state.token===null ? 'modal' : 'logout' } success={this.handleUserLogin} failure={()=>{}} logout={this.handleUserLogout}/>
           </div>
           <UserDisplay  display="medium" data={this.state.userData}/>
         </header>
