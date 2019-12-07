@@ -28,7 +28,6 @@ class Login extends React.Component{
         })
     }
     handleLogin(){
-        debugger;
         fetch('/api/login.php',{
             method: 'post',
             body: JSON.stringify(this.state.fields)
@@ -42,7 +41,6 @@ class Login extends React.Component{
         })
     }
     handleLogout(){
-        debugger;
         fetch('/api/logout.php',{
             headers: {
                 'auth-token': localStorage.authToken
