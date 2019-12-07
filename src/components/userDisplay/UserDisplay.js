@@ -8,13 +8,11 @@ class UserDisplay extends React.Component{
         }
     }
     componentDidMount(){
-        debugger;
         if(!this.props.data){
             this.getUserData();
         }
     }
     getUserData(){
-        debugger;
         fetch(`/api/user.php?id=${this.props.id||localStorage.authUser}`,{
             headers:{
                 'auth-token': localStorage.authToken
