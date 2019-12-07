@@ -42,6 +42,7 @@ class App extends React.Component{
         <header className="header">
           <div className="operationPanel">
             <Link to="/upload" className="">+</Link>
+            { this.state.token === null ? <LoginComponent mode="modal"/> : "logout" }
           </div>
           <UserDisplay  display="medium" data={this.state.userData}/>
         </header>
