@@ -19,7 +19,8 @@ if(!empty($_GET['id'])){
         throw new Exception('invalid ID: '. $_GET['id'] );
     }
     $postData = $result->fetch_assoc();
-    $postData['imagePath'] = "images/{$postData['userExternalID']}/{$postData['externalID']}.{$postData['extension']}";
+    $postData['imagePath'] = generateImageURL($postData['userExternalID'], "{$postData['externalID']}.{$postData['extension']}");
+    //"images/{$postData['userExternalID']}/{$postData['externalID']}.{$postData['extension']}";
     print(json_encode($postData));
     exit();
 }
