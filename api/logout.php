@@ -5,14 +5,14 @@ set_exception_handler('handleExceptions');
 require_once('mysql_connect.php');
 
 $postData = getBodyData();
-
-if(empty($postData['token'])){
+$headers = apache_request_headers();
+if(empty($headers['auth-token'])){
     throw new Exception('must supply a token');
 }
 
 $query = "DELETE FROM `sessions` WHERE `token` = ?";
 
-$result = prepare_statement( $query , [$postData['token']]);
+$result = prepare_statement( $query , [$headers['auth-token']]);
 
 if(!$result){
     throw new Exception('error with session query');
